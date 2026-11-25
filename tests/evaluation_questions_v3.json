@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "category": "workflow_management",
+    "question": "How do I create a new workflow in n8n?",
+    "expected_topic": "Creating and managing workflows",
+    "expected_keywords": ["workflow", "node", "editor"]
+  },
+  {
+    "id": 2,
+    "category": "workflow_management",
+    "question": "How can I save and publish a workflow?",
+    "expected_topic": "Saving and publishing workflows",
+    "expected_keywords": ["save", "publish", "workflow"]
+  },
+  {
+    "id": 3,
+    "category": "workflow_management",
+    "question": "How do I export and import workflows?",
+    "expected_topic": "Workflow import and export",
+    "expected_keywords": ["export", "import", "JSON"]
+  },
+  {
+    "id": 4,
+    "category": "workflow_management",
+    "question": "How can I execute a workflow manually?",
+    "expected_topic": "Manual workflow execution",
+    "expected_keywords": ["execute", "manual", "workflow"]
+  },
+  {
+    "id": 5,
+    "category": "workflow_management",
+    "question": "How do I duplicate an existing workflow?",
+    "expected_topic": "Duplicating workflows",
+    "expected_keywords": ["duplicate", "copy", "workflow"]
+  },
+  {
+    "id": 6,
+    "category": "triggers_scheduling",
+    "question": "How do I create a workflow that runs automatically every day?",
+    "expected_topic": "Schedule Trigger",
+    "expected_keywords": ["schedule", "trigger", "interval"]
+  },
+  {
+    "id": 7,
+    "category": "triggers_scheduling",
+    "question": "How do I configure the Webhook node to start a workflow when it receives an HTTP request?",
+    "expected_topic": "Webhook node configuration and triggering",
+    "expected_keywords": ["Webhook node", "HTTP request", "trigger"]
+  },
+  {
+    "id": 8,
+    "category": "triggers_scheduling",
+    "question": "How do I configure the Gmail Trigger node to start a workflow when a new email arrives?",
+    "expected_topic": "Gmail Trigger configuration",
+    "expected_keywords": ["Gmail Trigger", "email", "polling"]
+  },
+  {
+    "id": 9,
+    "category": "triggers_scheduling",
+    "question": "What is the difference between a trigger node and a regular node?",
+    "expected_topic": "Trigger nodes and regular nodes",
+    "expected_keywords": ["trigger", "node", "event"]
+  },
+  {
+    "id": 10,
+    "category": "triggers_scheduling",
+    "question": "How do I configure a workflow to run at a specific time?",
+    "expected_topic": "Schedule Trigger configuration",
+    "expected_keywords": ["schedule", "timezone", "time"]
+  },
+  {
+    "id": 11,
+    "category": "integrations_credentials",
+    "question": "How do I connect n8n to Telegram?",
+    "expected_topic": "Telegram integration",
+    "expected_keywords": ["Telegram", "credential", "bot"]
+  },
+  {
+    "id": 12,
+    "category": "integrations_credentials",
+    "question": "How do I configure credentials for an external service?",
+    "expected_topic": "Credentials configuration",
+    "expected_keywords": ["credentials", "authentication", "connection"]
+  },
+  {
+    "id": 13,
+    "category": "integrations_credentials",
+    "question": "How can I connect n8n to Google Sheets?",
+    "expected_topic": "Google Sheets integration",
+    "expected_keywords": ["Google Sheets", "credential", "spreadsheet"]
+  },
+  {
+    "id": 14,
+    "category": "integrations_credentials",
+    "question": "How do I troubleshoot an authentication error in an integration?",
+    "expected_topic": "Integration authentication troubleshooting",
+    "expected_keywords": ["authentication", "credentials", "error"]
+  },
+  {
+    "id": 15,
+    "category": "integrations_credentials",
+    "question": "How can I use OAuth2 credentials in n8n?",
+    "expected_topic": "OAuth2 credentials",
+    "expected_keywords": ["OAuth2", "authorization", "credentials"]
+  },
+  {
+    "id": 16,
+    "category": "api_operations",
+    "question": "How do I authenticate requests to the n8n public API?",
+    "expected_topic": "n8n API authentication",
+    "expected_keywords": ["API key", "authentication", "header"]
+  },
+  {
+    "id": 17,
+    "category": "api_operations",
+    "question": "How do I use the n8n public API to list all executions, including pagination?",
+    "expected_topic": "List executions using the n8n public API",
+    "expected_keywords": ["GET /executions", "nextCursor", "pagination"]
+  },
+  {
+    "id": 18,
+    "category": "api_operations",
+    "question": "How do I retry a failed execution using the n8n API?",
+    "expected_topic": "Retry execution API",
+    "expected_keywords": ["retry", "executionId", "POST"]
+  },
+  {
+    "id": 19,
+    "category": "api_operations",
+    "question": "How do I create a workflow using the n8n API?",
+    "expected_topic": "Workflows API",
+    "expected_keywords": ["POST", "workflows", "API"]
+  },
+  {
+    "id": 20,
+    "category": "api_operations",
+    "question": "How do I stop multiple executions using the n8n public API?",
+    "expected_topic": "Stop executions using the public API",
+    "expected_keywords": ["POST /executions/stop", "workflowId", "startedAfter"]
+  },
+  {
+    "id": 21,
+    "category": "deployment_configuration",
+    "question": "How do I deploy a self-hosted n8n instance using Docker Compose?",
+    "expected_topic": "Self-hosted Docker Compose deployment",
+    "expected_keywords": ["Docker Compose", "docker-compose.yml", "container"]
+  },
+  {
+    "id": 22,
+    "category": "deployment_configuration",
+    "question": "How do I configure environment variables in n8n?",
+    "expected_topic": "Environment variables",
+    "expected_keywords": ["environment", "variables", "configuration"]
+  },
+  {
+    "id": 23,
+    "category": "deployment_configuration",
+    "question": "How do I configure a PostgreSQL database for n8n?",
+    "expected_topic": "PostgreSQL database configuration",
+    "expected_keywords": ["PostgreSQL", "database", "DB_TYPE"]
+  },
+  {
+    "id": 24,
+    "category": "deployment_configuration",
+    "question": "How can I secure a self-hosted n8n instance?",
+    "expected_topic": "Self-hosted n8n security",
+    "expected_keywords": ["security", "HTTPS", "encryption"]
+  },
+  {
+    "id": 25,
+    "category": "deployment_configuration",
+    "question": "How do I configure queue mode in n8n?",
+    "expected_topic": "Queue mode",
+    "expected_keywords": ["queue", "Redis", "worker"]
+  },
+  {
+    "id": 26,
+    "category": "ai_agents_advanced",
+    "question": "How do I add and configure the AI Agent node inside an n8n workflow, including connecting a chat model and tools?",
+    "expected_topic": "AI Agent workflow node configuration",
+    "expected_keywords": ["AI Agent node", "chat model", "tool sub-node"]
+  },
+  {
+    "id": 27,
+    "category": "ai_agents_advanced",
+    "question": "How do I connect a language model to an AI agent?",
+    "expected_topic": "Language model connections",
+    "expected_keywords": ["language model", "AI Agent", "model"]
+  },
+  {
+    "id": 28,
+    "category": "ai_agents_advanced",
+    "question": "How can I give an AI agent access to external tools?",
+    "expected_topic": "AI agent tools",
+    "expected_keywords": ["tools", "AI Agent", "tool"]
+  },
+  {
+    "id": 29,
+    "category": "ai_agents_advanced",
+    "question": "How do I configure memory for an AI agent?",
+    "expected_topic": "AI agent memory",
+    "expected_keywords": ["memory", "AI Agent", "conversation"]
+  },
+  {
+    "id": 30,
+    "category": "ai_agents_advanced",
+    "question": "How do I troubleshoot an AI agent that produces incorrect results?",
+    "expected_topic": "AI agent troubleshooting",
+    "expected_keywords": ["AI Agent", "model", "output"]
+  }
+]
