@@ -1,13 +1,13 @@
 ﻿import streamlit as st
 import logging
+import textwrap
 
 from rag.retriever import DocumentRetriever
 from rag.generator import AnswerGenerator
 
 # Application logging
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
 logger = logging.getLogger(__name__)
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 st.set_page_config(
     page_title="n8n Intelligence",
-    page_icon="ðŸŒ¿",
+    page_icon="🌿",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -535,7 +535,7 @@ def render_sources(sources):
             else:
                 st.caption(f"Status: {status}")
 
-            st.markdown(f"[Open original documentation â†—]({source['url']})")
+            st.markdown(f"[Open original documentation]({source['url']})")
 
 
 def render_assistant_message(message):
@@ -546,7 +546,7 @@ def render_assistant_message(message):
 
     if sources:
 
-        with st.expander(f"VIEW SUPPORTING DOCUMENTATION Â· {len(sources)} SOURCES"):
+        with st.expander(f"VIEW SUPPORTING DOCUMENTATION | {len(sources)} SOURCES"):
             render_sources(sources)
 
     if message.get("has_deprecated_sources"):
@@ -585,7 +585,7 @@ with st.sidebar:
 
     st.markdown('<div class="sidebar-label">WORKSPACE</div>', unsafe_allow_html=True)
 
-    if st.button("ï¼‹  New conversation", use_container_width=True, type="primary"):
+    if st.button("+  New conversation", use_container_width=True, type="primary"):
 
         st.session_state.messages = []
         st.session_state.pending_question = None
@@ -604,7 +604,7 @@ with st.sidebar:
 
     for topic, question in topics.items():
 
-        if st.button(f"â†—  {topic}", key=f"nav_{topic}", use_container_width=True):
+        if st.button(f">  {topic}", key=f"nav_{topic}", use_container_width=True):
             ask_question(question)
 
     st.markdown(
@@ -616,7 +616,7 @@ with st.sidebar:
         <div class="sidebar-status">
             <div class="sidebar-status-row">
                 <span>RAG Engine</span>
-                <span class="sidebar-online">â— Ready</span>
+                <span class="sidebar-online">Ready</span>
             </div>
             <div class="sidebar-status-row">
                 <span>Vector Database</span>
@@ -624,7 +624,7 @@ with st.sidebar:
             </div>
             <div class="sidebar-status-row">
                 <span>Embeddings</span>
-                <span>MiniLM Â· 384D</span>
+                <span>MiniLM | 384D</span>
             </div>
             <div class="sidebar-status-row">
                 <span>Language Model</span>
@@ -663,7 +663,7 @@ st.markdown(
         <div>
             <div class="eyebrow">N8N / KNOWLEDGE EXPLORER</div>
         </div>
-        <div class="header-status">â— RAG SYSTEM READY</div>
+        <div class="header-status">RAG SYSTEM READY</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -695,8 +695,8 @@ with main_column:
 
     if not st.session_state.messages:
 
-        st.markdown(
-            """
+        st.html(
+            textwrap.dedent("""
             <div class="welcome-panel">
                 <div class="welcome-kicker">
                     YOUR KNOWLEDGE WORKSPACE
@@ -714,8 +714,7 @@ with main_column:
                     supported by original source material.
                 </p>
             </div>
-            """,
-            unsafe_allow_html=True,
+            """)
         )
 
         st.markdown("### Explore a starting point")
@@ -729,25 +728,25 @@ with main_column:
 
         with col1:
 
-            if st.button("01  Â·  Workflows", use_container_width=True):
+            if st.button("01  |  Workflows", use_container_width=True):
                 ask_question("How do I create and execute an n8n workflow?")
 
-            if st.button("02  Â·  Integrations", use_container_width=True):
+            if st.button("02  |  Integrations", use_container_width=True):
                 ask_question("How do integrations work in n8n?")
 
         with col2:
 
-            if st.button("03  Â·  Deployment", use_container_width=True):
+            if st.button("03  |  Deployment", use_container_width=True):
                 ask_question("What are the different ways to deploy n8n?")
 
-            if st.button("04  Â·  API", use_container_width=True):
+            if st.button("04  |  API", use_container_width=True):
                 ask_question("How can I interact with n8n using its API?")
 
     # Display conversation history
 
     for message in st.session_state.messages:
 
-        avatar = "ðŸ‘¤" if message["role"] == "user" else "ðŸŒ¿"
+        avatar = "👤" if message["role"] == "user" else "🌿"
 
         with st.chat_message(message["role"], avatar=avatar):
 
@@ -775,10 +774,10 @@ if question:
 
     with main_column:
 
-        with st.chat_message("user", avatar="ðŸ‘¤"):
+        with st.chat_message("user"):
             st.markdown(question)
 
-        with st.chat_message("assistant", avatar="ðŸŒ¿"):
+        with st.chat_message("assistant", avatar="🌿"):
 
             try:
 
@@ -823,13 +822,10 @@ if question:
 
                 st.session_state.messages.append(assistant_message)
 
-
             except Exception as error:
 
                 # Record technical details in application logs.
-                logger.exception(
-                    "Failed to process user question."
-                )
+                logger.exception("Failed to process user question.")
 
                 # Provide a friendly message to the user.
                 error_message = (
@@ -840,10 +836,7 @@ if question:
                 st.error(error_message)
 
                 st.session_state.messages.append(
-                    {
-                        "role": "assistant",
-                        "content": error_message
-                    }
+                    {"role": "assistant", "content": error_message}
                 )
 
 
@@ -851,8 +844,8 @@ if question:
 
 with research_column:
 
-    st.markdown(
-        """
+    st.html(
+        textwrap.dedent("""
         <div class="research-panel">
 
             <div class="eyebrow">RESEARCH PANEL</div>
@@ -866,8 +859,7 @@ with research_column:
             </div>
 
         </div>
-        """,
-        unsafe_allow_html=True,
+        """)
     )
 
     latest_assistant = next(
@@ -892,7 +884,7 @@ with research_column:
             st.markdown(
                 """
                 <div class="warning-panel">
-                    <strong>âš  Deprecated content detected</strong><br>
+                    <strong>Warning: Deprecated content detected</strong><br>
                     Some retrieved documentation was deprecated
                     and excluded from answer generation.
                 </div>
@@ -913,15 +905,15 @@ with research_column:
         st.markdown("### How it works")
 
         st.markdown("""
-            **01 Â· Retrieve**
+            **01 | Retrieve**
 
             Find relevant documentation.
 
-            **02 Â· Analyse**
+            **02 | Analyse**
 
             Provide supporting content to the language model.
 
-            **03 Â· Answer**
+            **03 | Answer**
 
             Generate an answer with source references.
             """)
